@@ -16,7 +16,6 @@ export function showProjects() {
             figure.appendChild(figcaption);
             gallery.appendChild(figure);
         });
-        console.log(data);
     })
 }
 
