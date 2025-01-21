@@ -40,9 +40,9 @@
         <div class="gallery"></div>
     </section>
         <script type="module">
-            import { fetchData } from './api/api.js';
+            import { getProjectsData } from './api/api.js';
 
-            fetchData(data => {
+            getProjectsData(data => {
                 const gallery = document.querySelector('.gallery');
                 gallery.innerHTML = '';
                 data.forEach(project => {
