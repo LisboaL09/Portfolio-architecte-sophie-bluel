@@ -1,21 +1,18 @@
-import { getSwaggerData } from '../api/api.js';
+export function displayProjects(works) {
+    const gallery = document.querySelector('.gallery');
+    gallery.innerHTML = '';
 
-getSwaggerData()
-    .then(({ data_works }) => {
-        const gallery = document.querySelector('.gallery');
-        gallery.innerHTML = '';
-        data_works.forEach(project => {
-            const figure = document.createElement('figure');
-            const img = document.createElement('img');
-            const figcaption = document.createElement('figcaption');
-            img.src = project.imageUrl;
-            img.alt = project.title;
-            figcaption.textContent = project.title;
-            figure.appendChild(img);
-            figure.appendChild(figcaption);
-            gallery.appendChild(figure);
-        });
-    })
-    .catch(error => {
-        console.error('Erreur dans la récupération des projets:', error);
+    works.forEach(work => {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        const figcaption = document.createElement('figcaption');
+
+        img.src = work.imageUrl;
+        img.alt = work.title;
+        figcaption.textContent = work.title;
+        
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+        gallery.appendChild(figure);
     });
+}
