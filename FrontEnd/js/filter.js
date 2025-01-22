@@ -1,18 +1,20 @@
-// import { getProjectsData } from "../api/api";
+import { getSwaggerData } from '../api/api.js';
 
-// getProjectsData()
-// .then(data => {
-//     const filter = document.querySelector('.filter');
-//     filter.innerHTML = '';
-//     // data.forEach(project => {
-//     //     // Faire attention aux doublons, ça prend chaque cat une fois
-//     //     const button = document.createElement('button');
-//     //     button.textContent = project
-//     //     img.src = project.imageUrl;
-//     //     img.alt = project.title;
-//     //     figcaption.textContent = project.title;
-//     //     button.appendChild(img);
-//     //     button.appendChild(figcaption);
-//     //     filter.appendChild(button);
-//     // });
-// })
+getSwaggerData()
+    .then(({ data_categories }) => {
+        const filter = document.querySelector('.filter');
+        filter.innerHTML = '';
+
+        const allButton = document.createElement('button');
+        allButton.textContent = 'Tous';
+        filter.appendChild(allButton);
+
+        data_categories.forEach(category => {
+            const button = document.createElement('button');
+            button.textContent = category.name;
+            filter.appendChild(button);
+        });
+    })
+    .catch(error => {
+        console.error('Erreur dans la récupération des catégories:', error);
+    });

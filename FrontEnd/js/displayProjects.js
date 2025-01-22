@@ -1,11 +1,10 @@
-import { getProjectsData } from '../api/api.js';
-		
-export function showProjects() {
-    getProjectsData()
-    .then(data => {
+import { getSwaggerData } from '../api/api.js';
+
+getSwaggerData()
+    .then(({ data_works }) => {
         const gallery = document.querySelector('.gallery');
         gallery.innerHTML = '';
-        data.forEach(project => {
+        data_works.forEach(project => {
             const figure = document.createElement('figure');
             const img = document.createElement('img');
             const figcaption = document.createElement('figcaption');
@@ -17,6 +16,6 @@ export function showProjects() {
             gallery.appendChild(figure);
         });
     })
-}
-
-showProjects();
+    .catch(error => {
+        console.error('Erreur dans la récupération des projets:', error);
+    });
