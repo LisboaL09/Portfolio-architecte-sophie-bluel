@@ -1,11 +1,15 @@
 import { getCategoriesData, getWorksData } from './api/api.js';
 
 export async function initDisplay() {
-    const data_categories = await getCategoriesData();
-    const data_works = await getWorksData();
+    try {
+        const data_categories = await getCategoriesData();
+        const data_works = await getWorksData();
 
-    displayCategories(data_categories, data_works);
-    displayWorks(data_works);
+        displayCategories(data_categories, data_works);
+        displayWorks(data_works);
+    } catch (error) {
+        console.error('Error initializing display:', error);
+    }
 }
 
 // Affiche les catégories (1)
