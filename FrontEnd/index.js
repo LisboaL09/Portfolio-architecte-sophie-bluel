@@ -1,16 +1,7 @@
 import { getCategoriesData, getWorksData } from './api/api.js';
 
-export async function initDisplay() {
-    try {
-        const data_categories = await getCategoriesData();
-        const data_works = await getWorksData();
-
-        displayCategories(data_categories, data_works);
-        displayWorks(data_works);
-    } catch (error) {
-        console.error('Error initializing display:', error);
-    }
-}
+const data_categories = await getCategoriesData();
+const data_works = await getWorksData();
 
 // Affiche les catégories (1)
 export async function displayCategories(data_categories, data_works) {
@@ -36,6 +27,9 @@ export async function displayCategories(data_categories, data_works) {
     });
 }
 
+displayCategories(data_categories, data_works);
+
+
 // Affiche les works (2)
 export function displayWorks(works) {
     const gallery = document.querySelector('.gallery');
@@ -55,13 +49,12 @@ export function displayWorks(works) {
         gallery.appendChild(figure);
     });
 }
+displayWorks(data_works);
 
 // Gère le filtre (3)
 export function filterWorksByCategory(works, categoryId) {
     return works.filter(work => work.categoryId === categoryId);
 }
-
-initDisplay();
 
 // Affiche l'état du button (4)
 export function setActiveButton(activeButton) {
