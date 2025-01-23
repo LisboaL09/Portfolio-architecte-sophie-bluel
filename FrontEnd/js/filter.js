@@ -9,10 +9,7 @@ async function FilteredWorksByCategory () {
         const data_works = await getWorksData();
 
         displayCategories(data_categories, data_works);
-
         displayWorks(data_works);
-
-        setActiveButton(allButton);
         
     } catch (error) {   
         console.error('Erreur dans la récupération des données :', error);
