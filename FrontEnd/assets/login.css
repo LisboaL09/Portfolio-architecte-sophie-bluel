@@ -1,0 +1,74 @@
+
+body {
+    background-color: #fffef8;
+}
+
+span {
+    font-family: 'Work Sans';
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+}
+
+#login h2 {
+    font-family: Syne;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+#login label {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.42px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#email-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+#password-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 20px;
+}
+
+input {
+    box-shadow: black 0px 0px 0px 0px;
+}
+
+#forget_password {
+    color: #3D3D3D;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.42px;
+    text-align: left;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}

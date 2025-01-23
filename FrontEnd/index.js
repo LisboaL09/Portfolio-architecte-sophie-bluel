@@ -65,3 +65,9 @@ export function setActiveButton(activeButton) {
     });
     activeButton.classList.add('active');
 }
+
+// Login
+const login_link = document.getElementById('login-link');
+login_link.addEventListener('click', () => {
+    window.location.href = 'login.html'; 
+});
