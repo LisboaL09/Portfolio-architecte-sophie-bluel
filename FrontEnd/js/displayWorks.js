@@ -1,4 +1,4 @@
-export function displayProjects(works) {
+export function displayWorks(works) {
     const gallery = document.querySelector('.gallery');
     gallery.innerHTML = '';
 

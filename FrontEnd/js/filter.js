@@ -1,6 +1,6 @@
 import { getCategoriesData, getWorksData } from '../api/api.js';
 import { setActiveButton } from "./activeButton.js";
-import { displayProjects } from './displayProjects.js';
+import { displayWorks } from './displayWorks.js';
 
 async function FilteredWorksByCategory () {
     try {
@@ -14,7 +14,7 @@ async function FilteredWorksByCategory () {
         allButton.textContent = 'Tous';
         allButton.addEventListener('click', () => {
             setActiveButton(allButton);
-            displayProjects(data_works);
+            displayWorks(data_works);
         });
         filter.appendChild(allButton);
 
@@ -24,12 +24,12 @@ async function FilteredWorksByCategory () {
             button.addEventListener('click', () => {
                 setActiveButton(button);
                 const filtered_works = data_works.filter(work => work.categoryId === category.id);
-                displayProjects(filtered_works);
+                displayWorks(filtered_works);
             });
             filter.appendChild(button);
         });
 
-        displayProjects(data_works);
+        displayWorks(data_works);
 
         setActiveButton(allButton);
         
