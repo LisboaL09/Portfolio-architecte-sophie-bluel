@@ -1,8 +1,12 @@
-import { getSwaggerData } from '../api/api.js';
+import { getCategoriesData, getWorksData } from '../api/api.js';
+import { setActiveButton } from "./activeButton.js";
 import { displayProjects } from './displayProjects.js';
 
-getSwaggerData()
-    .then(({ data_categories, data_works }) => {
+async function FilteredWorksByCategory () {
+    try {
+        const data_categories = await getCategoriesData();
+        const data_works = await getWorksData();
+
         const filter = document.querySelector('.filter');
         filter.innerHTML = '';
 
@@ -27,14 +31,11 @@ getSwaggerData()
 
         displayProjects(data_works);
 
-        function setActiveButton(activeButton) {
-            const buttons = filter.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
-            activeButton.classList.add('active');
-        }
-    })
-    .catch(error => {
-        console.error('Erreur dans la récupération des catégories:', error);
-    });
+        setActiveButton(allButton);
+        
+    } catch (error) {   
+        console.error('Erreur dans la récupération des données :', error);
+    }
+}
+
+FilteredWorksByCategory();
