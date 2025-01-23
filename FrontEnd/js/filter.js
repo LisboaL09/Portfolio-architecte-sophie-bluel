@@ -1,5 +1,4 @@
 import { getCategoriesData, getWorksData } from '../api/api.js';
-import { setActiveButton } from "./activeButton.js";
 import { displayWorks } from './displayWorks.js';
 import { displayCategories } from './displayCategories.js';
 
