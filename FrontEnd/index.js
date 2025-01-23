@@ -1,5 +1,13 @@
 import { getCategoriesData, getWorksData } from './api/api.js';
 
+export async function initDisplay() {
+    const data_categories = await getCategoriesData();
+    const data_works = await getWorksData();
+
+    displayCategories(data_categories, data_works);
+    displayWorks(data_works);
+}
+
 // Affiche les catégories (1)
 export async function displayCategories(data_categories, data_works) {
     const filter = document.querySelector('.filter');
@@ -9,7 +17,7 @@ export async function displayCategories(data_categories, data_works) {
     allButton.textContent = 'Tous';
     allButton.addEventListener('click', () => {
         setActiveButton(allButton);
-        displayWorks(data_works);
+        displayWorks((data_works)); 
     });
     filter.appendChild(allButton);
 
@@ -18,8 +26,7 @@ export async function displayCategories(data_categories, data_works) {
         button.textContent = category.name;
         button.addEventListener('click', () => {
             setActiveButton(button);
-            const filtered_works = data_works.filter(work => work.categoryId === category.id);
-            displayWorks(filtered_works);
+            displayWorks(filterWorksByCategory(data_works, category.id))
         });
         filter.appendChild(button);
     });
@@ -46,20 +53,11 @@ export function displayWorks(works) {
 }
 
 // Gère le filtre (3)
-export async function filter() {
-    try {
-        const data_categories = await getCategoriesData();
-        const data_works = await getWorksData();
-
-        displayCategories(data_categories, data_works);
-        displayWorks(data_works);
-        
-    } catch (error) {   
-        console.error('Erreur dans la récupération des données :', error);
-    }
+export function filterWorksByCategory(works, categoryId) {
+    return works.filter(work => work.categoryId === categoryId);
 }
 
-filter();
+initDisplay();
 
 // Affiche l'état du button (4)
 export function setActiveButton(activeButton) {
