@@ -1,18 +1,26 @@
-import { getCategoriesData, getWorksData } from '../api/api.js';
-import { displayWorks } from './displayWorks.js';
-import { displayCategories } from './displayCategories.js';
+import { displayWorks, setActiveButton } from '../index.js';
 
-async function FilteredWorksByCategory () {
-    try {
-        const data_categories = await getCategoriesData();
-        const data_works = await getWorksData();
+export async function filter(data_categories, data_works) {
 
-        displayCategories(data_categories, data_works);
-        displayWorks(data_works);
-        
-    } catch (error) {   
-        console.error('Erreur dans la récupération des données :', error);
-    }
+    const filter = document.querySelector('.filter'); // Afficher
+    filter.innerHTML = ''; // Afficher
+
+    const allButton = document.createElement('button');  // Afficher
+    allButton.textContent = 'Tous'; // Afficher
+    allButton.addEventListener('click', () => {  // Filtrer
+        setActiveButton(allButton); // Filtrer
+        displayWorks(data_works); // Filtrer
+    });
+    filter.appendChild(allButton); // Afficher
+    
+    data_categories.forEach(category => { // Afficher / Filtrer
+        const button = document.createElement('button'); //Afficher
+        button.textContent = category.name; // Afficher
+        button.addEventListener('click', () => { // Filtrer
+            setActiveButton(button); // Afficher
+            const filtered_works = data_works.filter(work => work.categoryId === category.id); // Filtrer
+            displayWorks(filtered_works); // Filtrer
+        });
+        filter.appendChild(button); // Afficher
+    });
 }
-
-FilteredWorksByCategory();
