@@ -1,6 +1,7 @@
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
+console.log('login.js')
+document.getElementById('connexion').addEventListener('click', async (event) => {
 
+    console.log('connexion');
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -18,7 +19,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             const userToken = data.token;
             sessionStorage.setItem('userEmail', email);
             sessionStorage.setItem('userToken', userToken);
-            window.location.replace('/');
+            window.location.replace('/Portfolio-architecte-sophie-bluel/FrontEnd/');
         } else {
             const errorData = await response.json();
             alert(errorData.message || 'Erreur de connexion');
