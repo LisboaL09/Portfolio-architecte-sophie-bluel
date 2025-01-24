@@ -69,7 +69,7 @@ span {
     left: 530px;
     border: none;
     box-shadow: #d8d8d8 1px 2px 3px 1px;
-    font-size: 5px;
+    font-size:17px;
 }
 
 #connexion {
@@ -89,7 +89,7 @@ span {
 }
 
 #espacement {
-    margin-top: 19%;
+    margin-top: 30%;
 }
 
 footer, #footer_nav {
