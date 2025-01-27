@@ -96,16 +96,19 @@ export function LoginLogout() {
 
 LoginLogout();
 
+
 // Gère la modal
 function initModal() {
 
-    const modal = document.getElementById('div-modal');
+    // Prend que l'index 0, car y a qu'une utilisation de la class modal
+    const modal = document.getElementsByClassName('modal')[0]; 
     const modalButton = document.getElementById('modal-button');
     const closeButton = document.getElementsByClassName('close-button')[0];
 
     // Ouvre la modal
     modalButton.addEventListener('click', () => {
         modal.style.display = 'block';
+        displayWorksInModal(data_works);
     });
 
     // Ferme la modal (avec button)
@@ -122,3 +125,17 @@ function initModal() {
 }
 
 initModal();
+
+
+function displayWorksInModal(works) {
+    const modalGallery = document.querySelector('.modal-galerie');
+    modalGallery.innerHTML = '';
+
+    works.forEach(work => {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = work.imageUrl;
+        figure.appendChild(img);
+        modalGallery.appendChild(figure);
+    });
+}
