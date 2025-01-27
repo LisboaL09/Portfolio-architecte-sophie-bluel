@@ -71,3 +71,15 @@ const login_link = document.getElementById('login-link');
 login_link.addEventListener('click', () => {
     window.location.href = 'login.html'; 
 });
+
+// Affiche l'état du button (4)
+export function LoginLogout() {
+
+    const loginButton = document.getElementById('login-link');
+    const userToken = sessionStorage.getItem('userToken');
+    if (userToken) {
+        loginButton.textContent = "logout"
+    }
+}
+
+LoginLogout();

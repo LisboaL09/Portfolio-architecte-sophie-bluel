@@ -1,6 +1,7 @@
 console.log('login.js')
 document.getElementById('connexion').addEventListener('click', async (event) => {
 
+    sessionStorage.getItem('userToken');
     console.log('connexion');
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
