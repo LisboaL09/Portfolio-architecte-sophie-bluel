@@ -76,9 +76,21 @@ login_link.addEventListener('click', () => {
 export function LoginLogout() {
 
     const loginButton = document.getElementById('login-link');
+    const modalButton = document.getElementById('modal-button');
     const userToken = sessionStorage.getItem('userToken');
     if (userToken) {
+        modalButton.style.display = "block";
         loginButton.textContent = "logout"
+        loginButton.addEventListener('click', () => {
+            sessionStorage.removeItem('userToken');
+            sessionStorage.removeItem('userEmail');
+            window.location.href = 'index.html';
+        })
+    } else {
+        modalButton.style.display = "none";
+        login_link.addEventListener('click', () => {
+            window.location.href = 'login.html'; 
+        });
     }
 }
 
