@@ -72,7 +72,7 @@ login_link.addEventListener('click', () => {
     window.location.href = 'login.html'; 
 });
 
-// Affiche l'état du button (4)
+// Permet de changer le bouton "login" en "logout"
 export function LoginLogout() {
 
     const loginButton = document.getElementById('login-link');
@@ -95,3 +95,30 @@ export function LoginLogout() {
 }
 
 LoginLogout();
+
+// Gère la modal
+function initModal() {
+
+    const modal = document.getElementById('div-modal');
+    const modalButton = document.getElementById('modal-button');
+    const closeButton = document.getElementsByClassName('close-button')[0];
+
+    // Ouvre la modal
+    modalButton.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // Ferme la modal (avec button)
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Ferme la modal (avec clic en dehors)
+    window.addEventListener('click', (e) => {
+        if (e.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+initModal();
