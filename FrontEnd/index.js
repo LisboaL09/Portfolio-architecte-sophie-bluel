@@ -108,18 +108,21 @@ function initModal() {
     // Ouvre la modal
     modalButton.addEventListener('click', () => {
         modal.style.display = 'block';
+        document.body.classList.add('no-scroll-modal');
         displayWorksInModal(data_works);
     });
 
     // Ferme la modal (avec button)
     closeButton.addEventListener('click', () => {
         modal.style.display = 'none';
+        document.body.classList.remove('no-scroll-modal');
     });
 
     // Ferme la modal (avec clic en dehors)
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
+            document.body.classList.remove('no-scroll-modal');
         }
     });
 }
