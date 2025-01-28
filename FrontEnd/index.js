@@ -130,7 +130,7 @@ function initModal() {
 initModal();
 
 
-function displayWorksInModal(works) {
+  function displayWorksInModal(works) {
     const modalGallery = document.querySelector('.modal-galerie');
     modalGallery.innerHTML = '';
 
@@ -138,6 +138,15 @@ function displayWorksInModal(works) {
         const figure = document.createElement('figure');
         const img = document.createElement('img');
         img.src = work.imageUrl;
+
+        const deleteWorkIcon = document.createElement('div');
+        deleteWorkIcon.classList.add('deletedWorkIcon');
+
+        const trashIcon = document.createElement('i');
+        trashIcon.classList.add('fas', 'fa-trash');
+        deleteWorkIcon.appendChild(trashIcon);
+
+        figure.appendChild(deleteWorkIcon);
         figure.appendChild(img);
         modalGallery.appendChild(figure);
     });
