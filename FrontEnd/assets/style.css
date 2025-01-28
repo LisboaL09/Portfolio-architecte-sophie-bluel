@@ -335,3 +335,21 @@ footer nav ul {
 .no-scroll-modal {
     overflow: hidden;	
 }
+
+/* Pour les carrés delete sur les works dans modal */
+.deletedWorkIcon {
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	position: absolute;
+	top: 30px;
+	margin-left: 105px;
+	position: relative;
+}
+
+/* Icone poubelle */
+.fa-trash{
+	color: rgb(238, 238, 238);
+	margin-top: 3px;
+	margin-left: 3.5px;
+}
