@@ -41,6 +41,12 @@ span {
     margin-bottom: 6px;
 }
 
+#login h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
 #login-form {
     display: flex;
     flex-direction: column;
