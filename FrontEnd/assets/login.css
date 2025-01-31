@@ -41,6 +41,12 @@ span {
     margin-bottom: 6px;
 }
 
+#login h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
 #login-form {
     display: flex;
     flex-direction: column;
@@ -72,8 +78,10 @@ span {
     font-size:17px;
 }
 
-#connexion {
-    padding: 8px;
+#login-button {
+    padding: 10px;
+    border: none;
+
 }
 
 #forget_password {
@@ -93,7 +101,6 @@ button {
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
@@ -107,9 +114,9 @@ footer, #footer_nav {
     display: flex;
     justify-content: end;
     background-color: white;
-} 
+}
 
 #footer_nav {
     display: flex;
     justify-content: end;
-} 
+}

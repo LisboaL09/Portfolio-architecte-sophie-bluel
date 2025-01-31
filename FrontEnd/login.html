@@ -25,9 +25,10 @@
     </nav>
 </header>
 <main>
-    <section id="section-login">
-        <div id="login-form">
+    <section id="login">
+        <div>
             <h2>Log In</h2>
+            <form id="login-form">
                 <div id="email-form">
                     <label for="email">E-mail</label>
                     <input type="email" name="email" id="email" required>
@@ -36,8 +37,9 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" required>
                 </div>
-                <button id="connexion">Se connecter</button>
-            <a id="forget_password">Mot de passe oublié</a>
+                <input id="login-button" type="submit" value="Se connecter">
+            </form>
+            <p id="forget_password">Mot de passe oublié</p>
         </div>
     </section>
 </main>
