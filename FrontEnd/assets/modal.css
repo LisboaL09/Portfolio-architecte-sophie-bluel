@@ -1,0 +1,76 @@
+#p-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    font-family: Work Sans;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30.5px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-top: 2em;
+}
+
+#add-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Titre */
+#title-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+    #title-label  {
+        margin-top: 10%;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+
+    #title-form input {
+        width: 379px;
+        height: 51px;
+        top: 338px;
+        left: 530px;
+        border: none;
+        box-shadow: #d8d8d8 1px 2px 3px 1px;
+        font-size:17px;
+    }
+
+/* Categories */
+#category-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 15px;
+}
+
+    #category-label  {
+        margin-top: 10%;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+
+    #category {
+        width: 379px;
+        height: 51px;
+        top: 338px;
+        left: 530px;
+        border: none;
+        box-shadow: #d8d8d8 1px 2px 3px 1px;
+        font-size:17px;
+    }
+
+#add-button {
+    margin-top: 35px;
+    padding: 10px;
+    border: none;
+}

@@ -98,33 +98,61 @@ export function LoginLogout() {
 LoginLogout();
 
 
-// Gère la modal
 function initModal() {
-
-    // Prend que l'index 0, car y a qu'une utilisation de la class modal
     const modal = document.getElementsByClassName('modal')[0]; 
     const modalButton = document.getElementById('modal-button');
     const closeButton = document.getElementsByClassName('close-button')[0];
 
-    // Ouvre la modal
+    const addWorkButton = document.querySelector('#add-galerie-div button');
+    const modalAddWork = document.getElementsByClassName('modal-add-work')[0];
+    const closeAddWorkButton = document.getElementsByClassName('close-add-work-button')[0];
+    const backArrow = document.getElementsByClassName('back-arrow')[0];
+
+    // Ouvre la modale principale
     modalButton.addEventListener('click', () => {
         modal.style.display = 'block';
         document.body.classList.add('no-scroll-modal');
         displayWorksInModal(data_works);
     });
 
-    // Ferme la modal (avec button)
+    // Ferme la modale principale (avec button)
     closeButton.addEventListener('click', () => {
         modal.style.display = 'none';
         document.body.classList.remove('no-scroll-modal');
     });
 
-    // Ferme la modal (avec clic en dehors)
+    // Ferme la modale principale (avec clic en dehors)
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
             document.body.classList.remove('no-scroll-modal');
         }
+    });
+
+    // Ouvre la modale pour ajouter une photo
+    addWorkButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalAddWork.style.display = 'block';
+    });
+
+    // Ferme la modale pour ajouter une photo (avec button)
+    closeAddWorkButton.addEventListener('click', () => {
+        modalAddWork.style.display = 'none';
+        document.body.classList.remove('no-scroll-modal');
+    });
+
+    // Ferme la modale pour ajouter une photo (avec clic en dehors)
+    window.addEventListener('click', (e) => {
+        if (e.target == modalAddWork) {
+            modalAddWork.style.display = 'none';
+            document.body.classList.remove('no-scroll-modal');
+        }
+    });
+
+    // Retour à la première modale
+    backArrow.addEventListener('click', () => {
+        modalAddWork.style.display = 'none';
+        modal.style.display = 'block';
     });
 }
 
