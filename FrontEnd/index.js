@@ -37,6 +37,7 @@ export function displayWorks(works) {
 
     works.forEach(work => {
         const figure = document.createElement('figure');
+        figure.setAttribute('data-id', work.id);
         const img = document.createElement('img');
         const figcaption = document.createElement('figcaption');
 
@@ -130,7 +131,7 @@ function initModal() {
 initModal();
 
 
-  function displayWorksInModal(works) {
+function displayWorksInModal(works) {
     const modalGallery = document.querySelector('.modal-galerie');
     modalGallery.innerHTML = '';
 
@@ -145,9 +146,38 @@ initModal();
         const trashIcon = document.createElement('i');
         trashIcon.classList.add('fas', 'fa-trash');
         deleteWorkIcon.appendChild(trashIcon);
+        
+        deleteWorkIcon.addEventListener('click', async () => {
+            await deleteWork(work.id);
+            figure.remove();
+        });
 
         figure.appendChild(deleteWorkIcon);
         figure.appendChild(img);
         modalGallery.appendChild(figure);
     });
+}
+
+async function deleteWork(workId) {
+    try {
+        const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('userToken')}`
+            }
+        });
+
+        if (response.ok) {
+            const gallery = document.querySelector('.gallery');
+            const workFigure = gallery.querySelector(`figure[data-id="${workId}"]`);
+            if (workFigure) {
+                workFigure.remove();
+            }
+        } else {
+            alert('Une erreur est survenue pendant la suppression du projet');
+        }
+    } catch (e) {
+        console.error('Erreur:', e);
+        alert('Erreur lors du try and catch lié à la suppression du projet');
+    }
 }
