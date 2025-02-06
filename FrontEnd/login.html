@@ -26,17 +26,19 @@
 </header>
 <main>
     <section id="section-login">
-        <div id="login-form">
+        <div>
             <h2>Log In</h2>
-                <div id="email-form">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div id="password-form">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button id="connexion">Se connecter</button>
+                <form id="login-form">
+                    <div id="email-form">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div id="password-form">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <input id="connexion" type="submit" value="Se connecter">
+                </form>
             <a id="forget_password">Mot de passe oublié</a>
         </div>
     </section>

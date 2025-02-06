@@ -1,6 +1,7 @@
 console.log('login.js')
-document.getElementById('connexion').addEventListener('click', async (event) => {
+document.getElementById('login-form').addEventListener('submit', async (event) => {
 
+    event.preventDefault();
     console.log('connexion');
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -13,6 +14,8 @@ document.getElementById('connexion').addEventListener('click', async (event) => 
             },
             body: JSON.stringify({ email, password })
         });
+
+        debugger;
 
         if (response.ok) {
             const data = await response.json();
