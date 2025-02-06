@@ -20,6 +20,32 @@
     justify-content: center;
 }
 
+/* Bouton ajouter une image */
+#button-file {
+    background-color: #CBD6DC;
+    border: none;
+    color: #306685;
+    padding: 10px 25px;
+    border-radius: 60px;
+    font-family: 'Syne';
+    font-size: 16px;
+    margin-left: 3px;
+    margin-right: 9px;
+    margin-bottom: 30px;
+}
+
+/* Input Ajout fichier */
+#file-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+#file-input, #p-file-input {
+    cursor: pointer;
+}
+
 /* Titre */
 #title-form {
     display: flex;
