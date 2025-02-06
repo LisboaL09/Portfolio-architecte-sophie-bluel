@@ -1,12 +1,14 @@
-
 console.log('login.js')
 
-function Login(){
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+function Login () {
 
-    document.getElementById('login-button').addEventListener('click', async (event) => {
+    document.getElementById('login-form').addEventListener('submit', async (event) => {
+
+        console.log('connexion');
         event.preventDefault();
+
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
         sessionStorage.getItem('userToken');
 
         try {
@@ -18,7 +20,7 @@ function Login(){
                 },
                 body: JSON.stringify({ email: email.value , password: password.value })
             });
-    
+
             if (response.ok) {
                 const data = await response.json();
                 const userToken = data.token;
@@ -34,7 +36,6 @@ function Login(){
             alert('Erreur de connexion');
         }
     });
-
 }
 
 Login();
